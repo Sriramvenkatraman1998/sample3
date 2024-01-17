@@ -7,9 +7,9 @@ phases:
 
   build:
     commands:
-      - go build -o myapp ./myapp
-      - go build -o yourapp ./yourapp
-      - go build -o momapp ./momapp
+      - go build -o myapp myapp
+      - go build -o yourapp yourapp
+      - go build -o momapp momapp
 
 artifacts:
   files:
