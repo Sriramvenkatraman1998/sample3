@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.8
+    commands:
+      - pip install ansible
+
+  build:
+    commands:
+      - ansible-playbook -i inventory.ini playbook.yml
+
+artifacts:
+  files: 
+    - '**/*'
+  discard-paths: yes
+
+
+
