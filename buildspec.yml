@@ -7,15 +7,15 @@ phases:
 
   build:
     commands:
-      - go build -o custom-package-myapp ./myapp
-      - go build -o custom-package-yourapp ./yourapp
-      - go build -o custom-package-momapp ./momapp
+      - go build -o myapp ./myapp
+      - go build -o yourapp ./yourapp
+      - go build -o momapp ./momapp
 
 artifacts:
   files:
-    - 'custom-package-myapp'
-    - 'custom-package-yourapp'
-    - 'custom-package-momapp'
+    - 'myapp'
+    - 'yourapp'
+    - 'momapp'
   discard-paths: yes
 
 cache:
