@@ -1,21 +1,20 @@
 version: 0.2
-
+ 
 phases:
   install:
     runtime-versions:
-      rust: 1.58.0  # Specify the Rust version
+        nodejs: 18
     commands:
-      - echo "Installing Rust"
-
+        - echo Installing dependencies...
+        - npm install
+ 
   build:
     commands:
-      - cargo build --release
-
+        - echo Build started on `date`
+        - echo Compiling the Node.js code...
+        - npm run build
+ 
 artifacts:
   files:
-    - 'target/release/myrustapp'  # Adjust the binary name based on your project
+    - '**/*'
   discard-paths: yes
-
-cache:
-  paths:
-    - '$HOME/.cargo'
