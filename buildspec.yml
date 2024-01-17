@@ -7,9 +7,9 @@ phases:
 
   build:
     commands:
-      - go build -o custom-package-myapp ./path/to/myapp
-      - go build -o custom-package-yourapp ./path/to/yourapp
-      - go build -o custom-package-momapp ./path/to/momapp
+      - go build -o custom-package-myapp ./myapp
+      - go build -o custom-package-yourapp ./yourapp
+      - go build -o custom-package-momapp ./momapp
 
 artifacts:
   files:
