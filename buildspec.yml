@@ -1,23 +1,21 @@
 version: 0.2
 
 phases:
-  pre_build:
+  install:
+    runtime-versions:
+      rust: 1.58.0  # Specify the Rust version
     commands:
-      - go version
+      - echo "Installing Rust"
 
   build:
     commands:
-      - go build -o myapp myapp
-      - go build -o yourapp yourapp
-      - go build -o momapp momapp
+      - cargo build --release
 
 artifacts:
   files:
-    - 'myapp'
-    - 'yourapp'
-    - 'momapp'
+    - 'target/release/myrustapp'  # Adjust the binary name based on your project
   discard-paths: yes
 
 cache:
   paths:
-    - '/go/pkg/mod'
+    - '$HOME/.cargo'
