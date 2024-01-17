@@ -1,20 +1,23 @@
 version: 0.2
 
 phases:
-  install:
-    runtime-versions:
-      python: 3.11
+  pre_build:
     commands:
-      - pip install ansible
+      - go version
 
   build:
     commands:
-      - ansible-playbook -i inventory.ini ec2creation.yml
+      - go build -o custom-package-myapp ./path/to/myapp
+      - go build -o custom-package-yourapp ./path/to/yourapp
+      - go build -o custom-package-momapp ./path/to/momapp
 
 artifacts:
-  files: 
-    - '**/*'
+  files:
+    - 'custom-package-myapp'
+    - 'custom-package-yourapp'
+    - 'custom-package-momapp'
   discard-paths: yes
 
-
-
+cache:
+  paths:
+    - '/go/pkg/mod'
