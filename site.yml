@@ -1,0 +1,22 @@
+---
+- name: Deploy to EC2
+  hosts: localhost
+  become: true
+
+  tasks:
+    - name: 
+      git: clone
+        repo: https://github.com/Sriramvenkatraman1998/sample3.git
+        dest: /tmp/ansible1
+        version: main
+
+    - name: create deploy location
+      ansible.builtin.file:
+        path: ~/ansible
+        state: directory
+      delegate_to: server1
+
+    - name: copy to environment
+      ansible.builtin.copy:
+        src: /tmp/ansible1/myapp
+        dest: ~/ansible
