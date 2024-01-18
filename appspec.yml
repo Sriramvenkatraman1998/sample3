@@ -2,19 +2,6 @@ version: 0.0
 os: linux
 
 hooks:
-  - BeforeInstall:
-      - location: scripts/before_install.sh
+  - run playbook:
+      - location: deploy.sh
         runas: ec2-user
-
-  - ApplicationStart:
-      - location: scripts/application_start.sh
-        runas: ec2-user
-
-files:
-  - source: /
-    destination: /var/www/html/myapp
-
-permissions:
-  - object: /var/www/html/myapp
-    owner: ec2-user
-    group: ec2-user
