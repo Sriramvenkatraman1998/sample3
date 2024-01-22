@@ -31,3 +31,7 @@
     wait_for: port=8080 timeout=60
     
   handlers:
+  - name: restart tomcat7
+    service:
+      name: tomcat7
+      state: restarted
