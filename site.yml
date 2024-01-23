@@ -1,7 +1,7 @@
 ---
 - hosts: tomcatServer
   vars:
-  - warName: ROOT.war
+  - warName: sample.war
   - warRemotePath: /home/tomcat
 
   tasks:
